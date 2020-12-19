@@ -132,8 +132,8 @@ duplicate the nice existing `libusb1.0 documentation`_.
 Some description is needed though on how to jump from libusb-1.0 documentation
 to python-libusb1, and vice-versa:
 
-``usb1`` module groups libusb-1.0 functions as class methods. The first
-parameter (when it's a ``libusb_...`` pointer) defined the class the fonction
+The ``usb1`` module groups libusb-1.0 functions as class methods. The first
+parameter (when it's a ``libusb_...`` pointer) defines the class the function
 belongs to. For example:
 
 - :c_code:`int libusb_init (libusb_context **context)` becomes USBContext class
@@ -141,7 +141,7 @@ belongs to. For example:
 
 - :c_code:`ssize_t libusb_get_device_list (libusb_context *ctx,
   libusb_device ***list)` becomes an USBContext method, returning a
-  list of USBDevice instances, :python_code:`USBDevice.getDeviceList(self)`
+  list of USBDevice instances, :python_code:`USBContext.getDeviceList(self)`
 
 - :c_code:`uint8_t libusb_get_bus_number (libusb_device *dev)` becomes an
   USBDevice method, :python_code:`USBDevice.getBusNumber(self)`
@@ -149,7 +149,7 @@ belongs to. For example:
 Error statuses are converted into :python_code:`usb1.USBError` exceptions, with
 status as ``value`` instance property.
 
-``usb1`` module also defines a few more functions and classes, which are
+The ``usb1`` module also defines a few more functions and classes, which are
 otherwise not so convenient to call from Python: the event handling API needed
 by async API.
 
